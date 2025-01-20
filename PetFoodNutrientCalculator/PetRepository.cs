@@ -24,8 +24,7 @@ namespace PetFoodNutrientCalculator
             Pets = new List<Pet>();
             inputValidator = new InputValidator();
         }
-
-        // TODO simplify this method for better readability and maintainability 
+ 
         /// <summary>
         /// Add a pet to a repository 
         /// </summary>
