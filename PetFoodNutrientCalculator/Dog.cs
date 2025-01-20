@@ -20,6 +20,7 @@ namespace PetFoodNutrientCalculator
         public double CalculateMetabolicWeight(double weight)
         {
             double result = Math.Pow(weight, COEFFICIENT_FOR_METABOLIC_WEIGHT);
+            result = Math.Round(result, 2);
 
             return result;
         }
