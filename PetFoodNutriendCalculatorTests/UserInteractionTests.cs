@@ -1,8 +1,10 @@
-﻿using PetFoodNutrientCalculator;
+﻿using Microsoft.VisualStudio.TestPlatform.Utilities;
+using PetFoodNutrientCalculator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace PetFoodNutrientCalculatorTests
@@ -16,8 +18,12 @@ namespace PetFoodNutrientCalculatorTests
         {
             // Arrange
             var userInteraction = new UserInteraction();
+
+            // Simulates user input
             var input = new StringReader("1\n");
             Console.SetIn(input);
+
+            //Captures console output for verification
             var output = new StringWriter();
             Console.SetOut(output);
 
@@ -35,8 +41,12 @@ namespace PetFoodNutrientCalculatorTests
         {
             // Arrange
             var userInteraction = new UserInteraction();
+
+            // Simulates user input
             var input = new StringReader("2\n");
             Console.SetIn(input);
+
+            //Captures console output for verification
             var output = new StringWriter();
             Console.SetOut(output);
 
@@ -54,8 +64,12 @@ namespace PetFoodNutrientCalculatorTests
         {
             // Arrange
             var userInteraction = new UserInteraction();
+
+            // Simulates user input
             var input = new StringReader("3\n");
             Console.SetIn(input);
+
+            //Captures console output for verification
             var output = new StringWriter();
             Console.SetOut(output);
 
@@ -73,8 +87,12 @@ namespace PetFoodNutrientCalculatorTests
         {
             // Arrange
             var userInteraction = new UserInteraction();
+
+            // Simulates user input
             var input = new StringReader("invalid\n3\n");
             Console.SetIn(input);
+
+            //Captures console output for verification
             var output = new StringWriter();
             Console.SetOut(output);
 
