@@ -35,7 +35,7 @@ namespace PetFoodNutrientCalculator
             { 
                     if (userInputInt == 1 || userInputInt == 2 || userInputInt == 3)
                     {
-                    // TODO add method for functionality 
+                        SwitchFunctionality(userInputInt);
                     }     
             }
             else
@@ -45,7 +45,22 @@ namespace PetFoodNutrientCalculator
             }
         }
 
-        // TODO add method for functionality and funtionality methods 
+        // TODO complete method for functionality and funtionality methods 
+        public void SwitchFunctionality(int functionality)
+        {
+            switch (functionality)
+            {
+                case 1:
+                    petRepository.AddPet();
+                    break;
+                default:
+                case 2: 
+                    // add method to choosing from a list of pets 
+                    break;
+                case 3:
+                    break;
+            }
+        }
     }
 }
 
