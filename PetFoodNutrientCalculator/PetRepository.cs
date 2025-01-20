@@ -13,7 +13,10 @@ namespace PetFoodNutrientCalculator
     {
         public List<Pet> Pets { get; private set; }
 
-        int petSelection;
+        private int petSelection;
+        private string petName = string.Empty;
+        private double petWeight; 
+
         public PetRepository()
         {
             Pets = new List<Pet>();
@@ -25,49 +28,20 @@ namespace PetFoodNutrientCalculator
         /// </summary>
         public void AddPet()
         {
-            try
-            {
-                Console.WriteLine("Valitse 1 mikäli lemmikki on koira. Valitse 2 mikäli lemmikki on kissa");
-      
-                string userInput = Console.ReadLine();
+           
+            Console.WriteLine("Valitse 1 mikäli lemmikki on koira. Valitse 2 mikäli lemmikki on kissa");
+            string userInput = Console.ReadLine();
+            petSelection= ValidatePetSelection(userInput);
 
-                petSelection= ValidatePetSelection(userInput);
+            Console.WriteLine("Kirjoita lemmikin nimi");
+            userInput = Console.ReadLine();
+            petName = ValidatePetName(userInput);
 
-                Console.WriteLine("Kirjoita lemmikin nimi");
-                string petName = Console.ReadLine();
+            Console.WriteLine("Kirjoita lemmikin paino kiloina. Esim. 4.2");
+            userInput = Console.ReadLine().Replace('.', ',');
+            petWeight = ValidatePetWeight(userInput);
 
-                if (string.IsNullOrWhiteSpace(petName))
-                {
-                    Console.WriteLine("Virheellinen syöte. Nimi ei voi olla tyhjä.");
-                    return;
-                }
-
-                Console.WriteLine("Kirjoita lemmikin paino kiloina. Esim. 4.2");
-                string weightInput = Console.ReadLine().Replace('.', ',');
-  
-                if (!double.TryParse(weightInput, out double petWeight) || petWeight <= 0)
-                {
-                    Console.WriteLine("Virheellinen syöte. Syötä kelvollinen paino.");
-                    return;
-                }
-
-                //if (species == 1)
-                //{
-                //    Dog dog = new Dog(petName, petWeight);
-                //    Pets.Add(dog);
-                //}
-                //else if (species == 2)
-                //{
-                //    Cat cat = new Cat(petName, petWeight);
-                //    Pets.Add(cat);
-                //}
-
-                Console.WriteLine("Lemmikki lisätty onnistuneesti");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Tapahtui virhe: {ex.Message}");
-            }
+            SwitchPetToAdd(petSelection);      
         }
 
         public int ValidatePetSelection(string userInput)
@@ -80,6 +54,46 @@ namespace PetFoodNutrientCalculator
             
             int selection = int.Parse(userInput);
             return selection; 
+        }
+
+        //TODO functionality that returns to the correct position in the AddPet method
+        public string ValidatePetName(string userInput)
+        {
+            if (string.IsNullOrWhiteSpace(userInput))
+            {
+                Console.WriteLine("Virheellinen syöte. Nimi ei voi olla tyhjä.");
+                AddPet();
+            }
+
+            return userInput;
+        }
+
+        //TODO functionality that returns to the correct position in the AddPet method
+        public double ValidatePetWeight(string userInput)
+        {
+            if (!double.TryParse(userInput, out double petWeight) || petWeight <= 0)
+            {
+                Console.WriteLine("Virheellinen syöte. Syötä kelvollinen paino.");
+                AddPet();
+            }
+
+            return petWeight;
+        }
+
+        public void SwitchPetToAdd(int selection)
+        {
+            if (selection == 1)
+            {
+                Dog dog = new Dog(petName, petWeight);
+                Pets.Add(dog);
+            }
+            else if (selection == 2)
+            {
+                Cat cat = new Cat(petName, petWeight);
+                Pets.Add(cat);
+            }
+
+            Console.WriteLine($"Lemmikkisi {petName} lisätty onnistuneesti");
         }
     }
 }
