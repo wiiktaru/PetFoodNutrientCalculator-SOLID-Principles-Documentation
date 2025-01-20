@@ -13,6 +13,8 @@ namespace PetFoodNutrientCalculator
     {
         public List<Pet> Pets { get; private set; }
 
+        private InputValidator inputValidator; 
+
         private int petSelection;
         private string petName = string.Empty;
         private double petWeight; 
@@ -20,8 +22,10 @@ namespace PetFoodNutrientCalculator
         public PetRepository()
         {
             Pets = new List<Pet>();
+            inputValidator = new InputValidator();
         }
 
+        // TODO simplify this method for better readability and maintainability 
         /// <summary>
         /// Add a pet to a repository 
         /// </summary>
@@ -29,49 +33,32 @@ namespace PetFoodNutrientCalculator
         {
             Console.WriteLine("Valitse 1 mikäli lemmikki on koira. Valitse 2 mikäli lemmikki on kissa.");
             string userInput = Console.ReadLine();
-            ValidatePetSelection(userInput);
+            if(!inputValidator.ValidatePetSelection(userInput)) 
+            {
+                AddPet();
+                return;
+            }
             petSelection = int.Parse(userInput);
 
             Console.WriteLine("Kirjoita lemmikin nimi.");
             userInput = Console.ReadLine();
-            ValidatePetName(userInput);
+            if(!inputValidator.ValidatePetName(userInput))
+            {
+                AddPet();
+                return;
+            }
             petName = userInput; 
 
             Console.WriteLine("Kirjoita lemmikin paino kiloina. Esim. 4.2");
             userInput = Console.ReadLine().Replace('.', ',');
-            ValidatePetWeight(userInput);
+            if(!inputValidator.ValidatePetWeight(userInput))
+            {
+                AddPet();
+                return;
+            }
             petWeight = double.Parse(userInput);
 
             SwitchPetToAdd(petSelection);      
-        }
-
-        public void ValidatePetSelection(string userInput)
-        {
-            if (!int.TryParse(userInput, out int selection) || (selection != 1 && selection != 2))
-            {
-                Console.WriteLine("Virheellinen syöte. Valitse kokonaisluku 1 tai 2.");
-                AddPet();
-            }
-        }
-
-        //TODO functionality that returns to the correct position in the AddPet method
-        public void ValidatePetName(string userInput)
-        {
-            if (string.IsNullOrWhiteSpace(userInput))
-            {
-                Console.WriteLine("Virheellinen syöte. Nimi ei voi olla tyhjä.");
-                AddPet();
-            }
-        }
-
-        //TODO functionality that returns to the correct position in the AddPet method
-        public void ValidatePetWeight(string userInput)
-        {
-            if (!double.TryParse(userInput, out double petWeight) || petWeight <= 0)
-            {
-                Console.WriteLine("Virheellinen syöte. Syötä kelvollinen paino.");
-                AddPet();
-            }
         }
 
         public void SwitchPetToAdd(int selection)
