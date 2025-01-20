@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace PetFoodNutrientCalculator
 {
-    internal class Cat : Pet, IPet
+    public class Cat : Pet, IPet
     {
-        private const double DAILY_TAURINE_NEED_PER_METABOLIC_KG = 9.9;
+        public const double DAILY_TAURINE_NEED_PER_METABOLIC_KG = 9.9;
 
         public double DailyTaurineNeed
         {
             get
             {
-                return DailyTaurineNeed;
+                return MetabolicWeight * DAILY_TAURINE_NEED_PER_METABOLIC_KG;
             }
-            set
+            set 
             {
-                DailyTaurineNeed = MetabolicWeight * DAILY_TAURINE_NEED_PER_METABOLIC_KG;
+
             }
         }
         
