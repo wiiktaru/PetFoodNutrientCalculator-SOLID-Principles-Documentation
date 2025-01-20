@@ -18,6 +18,7 @@ namespace PetFoodNutrientCalculator
             Pets = new List<Pet>();
         }
 
+        // TODO simplify this
         /// <summary>
         /// Add a pet to a repository 
         /// </summary>
