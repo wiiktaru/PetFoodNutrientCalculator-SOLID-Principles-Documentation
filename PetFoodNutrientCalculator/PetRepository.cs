@@ -28,11 +28,9 @@ namespace PetFoodNutrientCalculator
             {
                 Console.WriteLine("Valitse 1 mikäli lemmikki on koira. Valitse 2 mikäli lemmikki on kissa");
       
-                if (!int.TryParse(Console.ReadLine(), out int species) || (species != 1 && species != 2))
-                {
-                    Console.WriteLine("Virheellinen syöte. Valitse 1 tai 2.");
-                    return;
-                }
+                string userInput = Console.ReadLine();
+
+                ValidatePetSelection(userInput);
 
                 Console.WriteLine("Kirjoita lemmikin nimi");
                 string petName = Console.ReadLine();
@@ -52,22 +50,35 @@ namespace PetFoodNutrientCalculator
                     return;
                 }
 
-                if (species == 1)
-                {
-                    Dog dog = new Dog(petName, petWeight);
-                    Pets.Add(dog);
-                }
-                else if (species == 2)
-                {
-                    Cat cat = new Cat(petName, petWeight);
-                    Pets.Add(cat);
-                }
+                //if (species == 1)
+                //{
+                //    Dog dog = new Dog(petName, petWeight);
+                //    Pets.Add(dog);
+                //}
+                //else if (species == 2)
+                //{
+                //    Cat cat = new Cat(petName, petWeight);
+                //    Pets.Add(cat);
+                //}
 
                 Console.WriteLine("Lemmikki lisätty onnistuneesti");
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Tapahtui virhe: {ex.Message}");
+            }
+        }
+
+        public void ValidatePetSelection(string userInput)
+        {
+            if(!int.TryParse(userInput, out int species) || (species != 1 && species != 2))
+            { 
+                Console.WriteLine("Virheellinen syöte. Valitse kokonaisluku 1 tai 2.");
+                AddPet();
+            }
+            else
+            { 
+
             }
         }
     }
