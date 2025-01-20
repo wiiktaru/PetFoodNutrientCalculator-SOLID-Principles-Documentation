@@ -17,6 +17,7 @@ namespace PetFoodNutrientCalculator
         
         PetRepository petRepository = new PetRepository();
 
+        // TODO simplify this method for better readability and maintainability 
         /// <summary>
         /// Method to start the user interaction loop
         /// </summary>
