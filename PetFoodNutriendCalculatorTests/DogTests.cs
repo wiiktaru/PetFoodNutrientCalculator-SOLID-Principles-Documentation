@@ -14,17 +14,18 @@ namespace PetFoodNutrientCalculatorTests
             public void DogConstructor_ShouldInitializeProperties()
             {
                 // Arrange
-                string name = "Ressu";
+                string name = "Pluto";
                 double weight = 10.0;
 
                 // Act
                 Dog dog = new Dog(name, weight);
                 double metabolicWeight = dog.CalculateMetabolicWeight(weight);
-                double calculationForMetabolicWeight = Math.Round(Math.Pow(weight, Pet.COEFFICIENT_FOR_METABOLIC_WEIGHT), 2);
-            // Assert
-            Assert.AreEqual(name, dog.Name, "Koiran nimen tulisi olla Ressu");
-                Assert.AreEqual(weight, dog.Weight, "Koiran painon tulisi olla 10");
-                Assert.AreEqual(calculationForMetabolicWeight, metabolicWeight,
+                double actualMetabolicWeight = Math.Round(Math.Pow(weight, Pet.COEFFICIENT_FOR_METABOLIC_WEIGHT), 2);
+            
+                // Assert
+                Assert.AreEqual(name, dog.Name, "Koiran nimen tulisi vastata nimeä Pluto.");
+                Assert.AreEqual(weight, dog.Weight, "Koiran painon tulisi vastata painoa 10.");
+                Assert.AreEqual(actualMetabolicWeight, metabolicWeight,
                 "Metabolisen painon tulisi vastata laskettua metabolista painoa");
             }
 
@@ -33,14 +34,14 @@ namespace PetFoodNutrientCalculatorTests
             {
                 // Arrange
                 double weight = 10.0;
-                Dog dog = new Dog("Ressu", weight);
+                Dog dog = new Dog("Pluto", weight);
 
                 // Act
                 double metabolicWeight = dog.CalculateMetabolicWeight(weight);
-                double calculationForMetabolicWeight = Math.Round(Math.Pow(weight, Pet.COEFFICIENT_FOR_METABOLIC_WEIGHT), 2);
+                double actualMetabolicWeight = Math.Round(Math.Pow(weight, Pet.COEFFICIENT_FOR_METABOLIC_WEIGHT), 2);
 
                 // Assert
-                Assert.AreEqual(calculationForMetabolicWeight, metabolicWeight,
+                Assert.AreEqual(actualMetabolicWeight, metabolicWeight,
                     "Metabolisen painon tulisi vastata laskettua metabolista painoa");
             }
         }
