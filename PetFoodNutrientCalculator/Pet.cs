@@ -11,7 +11,7 @@ namespace PetFoodNutrientCalculator
         public string Name { get; set; }
         public double Weight { get; set; }
 
-        protected const double COEFFICIENT_FOR_METABOLIC_WEIGHT = 0.75;
+        public const double COEFFICIENT_FOR_METABOLIC_WEIGHT = 0.75;
 
         public double MetabolicWeight { get; set; } 
     }

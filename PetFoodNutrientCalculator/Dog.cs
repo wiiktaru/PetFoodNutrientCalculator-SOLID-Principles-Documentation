@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PetFoodNutrientCalculator
 {
-    internal class Dog : Pet, IPet
+    public class Dog : Pet, IPet
     {
         public Dog(string name,double weight)
         {
