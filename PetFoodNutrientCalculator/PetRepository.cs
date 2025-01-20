@@ -13,6 +13,7 @@ namespace PetFoodNutrientCalculator
     {
         public List<Pet> Pets { get; private set; }
 
+        int petSelection;
         public PetRepository()
         {
             Pets = new List<Pet>();
@@ -30,7 +31,7 @@ namespace PetFoodNutrientCalculator
       
                 string userInput = Console.ReadLine();
 
-                ValidatePetSelection(userInput);
+                petSelection= ValidatePetSelection(userInput);
 
                 Console.WriteLine("Kirjoita lemmikin nimi");
                 string petName = Console.ReadLine();
@@ -69,17 +70,16 @@ namespace PetFoodNutrientCalculator
             }
         }
 
-        public void ValidatePetSelection(string userInput)
+        public int ValidatePetSelection(string userInput)
         {
             if(!int.TryParse(userInput, out int species) || (species != 1 && species != 2))
             { 
                 Console.WriteLine("Virheellinen syöte. Valitse kokonaisluku 1 tai 2.");
                 AddPet();
             }
-            else
-            { 
-
-            }
+            
+            int selection = int.Parse(userInput);
+            return selection; 
         }
     }
 }
