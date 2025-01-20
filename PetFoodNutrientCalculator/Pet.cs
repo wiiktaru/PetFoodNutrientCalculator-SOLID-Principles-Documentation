@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace PetFoodNutrientCalculator
 {
+    /// <summary>
+    /// Represents a pet with common properties
+    /// </summary>
     public class Pet
     {
         public string Name { get; set; }

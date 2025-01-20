@@ -6,30 +6,37 @@ using System.Threading.Tasks;
 
 namespace PetFoodNutrientCalculator
 {
+    /// <summary>
+    /// Handles user interactions
+    /// </summary>
     public class UserInteraction
     {
-        bool isValidInput = false;
-        int userInput;
+
+        bool userInputIsValid = false;
+        int userInputInt;
         
         PetRepository petRepository = new PetRepository();
 
+        /// <summary>
+        /// Method to start the user interaction loop
+        /// </summary>
         public void Start()
         {
-            while (!isValidInput)
+            while (!userInputIsValid)
             {
                 Console.WriteLine("Valitse 1 mikäli haluat lisätä lemmikin.");
                 Console.WriteLine("Valitse 2 mikäli haluat valita lemmikin listalta");
                 Console.WriteLine("Valitse 3 mikäli haluat sulkea sovelluksen");
 
-                string input = Console.ReadLine();
+                string userInputString = Console.ReadLine();
 
                 try
                 {
-                    userInput = int.Parse(input);
+                    userInputInt = int.Parse(userInputString);
 
-                    if (userInput == 1 || userInput == 2 || userInput == 3)
+                    if (userInputInt == 1 || userInputInt == 2 || userInputInt == 3)
                     {
-                        isValidInput = true;
+                        userInputIsValid = true;
                     }
                     else
                     {
@@ -43,11 +50,11 @@ namespace PetFoodNutrientCalculator
 
             }
 
-            switch (userInput)
+            switch (userInputInt)
             {
                 case 1:
                     petRepository.AddPet();
-                    isValidInput = false;
+                    userInputIsValid = false;
                     break;  
             }
         }

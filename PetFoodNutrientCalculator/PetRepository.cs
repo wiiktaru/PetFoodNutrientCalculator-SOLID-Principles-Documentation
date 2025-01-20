@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace PetFoodNutrientCalculator
 {
+    /// <summary>
+    /// Serves as a repository for storing and managing pets
+    /// </summary>
     public class PetRepository
     {
         public List<Pet> Pets { get; private set; }
@@ -14,6 +17,10 @@ namespace PetFoodNutrientCalculator
         {
             Pets = new List<Pet>();
         }
+
+        /// <summary>
+        /// Add a pet to a repository 
+        /// </summary>
         public void AddPet()
         {
             try

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace PetFoodNutrientCalculator
 {
+    /// <summary>
+    /// Represents a dog, which is a type of pet 
+    /// </summary>
     public class Dog : Pet, IPet
     {
         public Dog(string name,double weight)
@@ -25,11 +28,13 @@ namespace PetFoodNutrientCalculator
             return result;
         }
 
+        // TODO add functionality 
         public int CalculateDailyEnergyRequirement()
         {
             throw new NotImplementedException();
         }
 
+        //TODO add functionality 
         public void CalculateNutrients()
         {
             throw new NotImplementedException();

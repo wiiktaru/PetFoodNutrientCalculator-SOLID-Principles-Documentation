@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace PetFoodNutrientCalculator
 {
+    /// <summary>
+    /// Represents a cat, which is a type of pet 
+    /// </summary>
     public class Cat : Pet, IPet
     {
         public const double DAILY_TAURINE_NEED_PER_METABOLIC_KG = 9.9;
@@ -38,11 +41,12 @@ namespace PetFoodNutrientCalculator
                 return result;
             }
 
+        //TODO add functionality 
             public int CalculateDailyEnergyRequirement()
             {
                 throw new NotImplementedException();
             }
-
+        //TODO add functionality 
             public void CalculateNutrients()
             {
                 throw new NotImplementedException();
