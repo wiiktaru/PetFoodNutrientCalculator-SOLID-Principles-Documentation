@@ -31,34 +31,53 @@ namespace PetFoodNutrientCalculator
         /// </summary>
         public void AddPet()
         {
-            Console.WriteLine("Valitse 1 mikäli lemmikki on koira. Valitse 2 mikäli lemmikki on kissa.");
-            string userInput = Console.ReadLine();
-            if(!inputValidator.ValidatePetSelection(userInput)) 
-            {
-                AddPet();
-                return;
-            }
-            petSelection = int.Parse(userInput);
-
-            Console.WriteLine("Kirjoita lemmikin nimi.");
-            userInput = Console.ReadLine();
-            if(!inputValidator.ValidatePetName(userInput))
-            {
-                AddPet();
-                return;
-            }
-            petName = userInput; 
-
-            Console.WriteLine("Kirjoita lemmikin paino kiloina. Esim. 4.2");
-            userInput = Console.ReadLine().Replace('.', ',');
-            if(!inputValidator.ValidatePetWeight(userInput))
-            {
-                AddPet();
-                return;
-            }
-            petWeight = double.Parse(userInput);
+            petSelection = GetPetSelection();
+            petName = GetPetName();
+            petWeight = GetPetWeight(); 
 
             SwitchPetToAdd(petSelection);      
+        }
+
+        private int GetPetSelection()
+        {
+            while (true)
+            {
+                Console.WriteLine("Valitse 1 mikäli lemmikki on koira. " +
+                "Valitse 2 mikäli lemmikki on kissa.");
+
+                string userInput = Console.ReadLine();
+
+                if (inputValidator.ValidatePetSelection(userInput))
+                {
+                    return int.Parse(userInput);
+                }
+            }
+        }
+        private string GetPetName()
+        {
+            while (true)
+            {
+                Console.WriteLine("Kirjoita lemmikin nimi.");
+
+                string userInput = Console.ReadLine();
+
+                if (inputValidator.ValidatePetName(userInput))
+                {
+                    return userInput;
+                }
+            }
+        }
+        private double GetPetWeight()
+        {
+            while (true)
+            {
+                Console.WriteLine("Kirjoita lemmikin paino kiloina. Esim. 4.2");
+                string userInput = Console.ReadLine().Replace('.', ',');
+                if (inputValidator.ValidatePetWeight(userInput))
+                {
+                    return double.Parse(userInput);
+                }
+            }
         }
 
         public void SwitchPetToAdd(int selection)
