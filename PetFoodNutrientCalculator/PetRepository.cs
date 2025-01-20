@@ -31,53 +31,49 @@ namespace PetFoodNutrientCalculator
            
             Console.WriteLine("Valitse 1 mikäli lemmikki on koira. Valitse 2 mikäli lemmikki on kissa");
             string userInput = Console.ReadLine();
-            petSelection= ValidatePetSelection(userInput);
+            ValidatePetSelection(userInput);
+            petSelection = int.Parse(userInput);
 
             Console.WriteLine("Kirjoita lemmikin nimi");
             userInput = Console.ReadLine();
-            petName = ValidatePetName(userInput);
+            ValidatePetName(userInput);
+            petName = userInput; 
 
             Console.WriteLine("Kirjoita lemmikin paino kiloina. Esim. 4.2");
             userInput = Console.ReadLine().Replace('.', ',');
-            petWeight = ValidatePetWeight(userInput);
+            ValidatePetWeight(userInput);
+            petWeight = double.Parse(userInput);
 
             SwitchPetToAdd(petSelection);      
         }
 
-        public int ValidatePetSelection(string userInput)
+        public void ValidatePetSelection(string userInput)
         {
-            if(!int.TryParse(userInput, out int species) || (species != 1 && species != 2))
-            { 
+            if (!int.TryParse(userInput, out int species) || (species != 1 && species != 2))
+            {
                 Console.WriteLine("Virheellinen syöte. Valitse kokonaisluku 1 tai 2.");
                 AddPet();
             }
-            
-            int selection = int.Parse(userInput);
-            return selection; 
         }
 
         //TODO functionality that returns to the correct position in the AddPet method
-        public string ValidatePetName(string userInput)
+        public void ValidatePetName(string userInput)
         {
             if (string.IsNullOrWhiteSpace(userInput))
             {
                 Console.WriteLine("Virheellinen syöte. Nimi ei voi olla tyhjä.");
                 AddPet();
             }
-
-            return userInput;
         }
 
         //TODO functionality that returns to the correct position in the AddPet method
-        public double ValidatePetWeight(string userInput)
+        public void ValidatePetWeight(string userInput)
         {
             if (!double.TryParse(userInput, out double petWeight) || petWeight <= 0)
             {
                 Console.WriteLine("Virheellinen syöte. Syötä kelvollinen paino.");
                 AddPet();
             }
-
-            return petWeight;
         }
 
         public void SwitchPetToAdd(int selection)
