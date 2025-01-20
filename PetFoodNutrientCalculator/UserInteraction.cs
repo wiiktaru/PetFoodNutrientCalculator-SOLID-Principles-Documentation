@@ -10,6 +10,8 @@ namespace PetFoodNutrientCalculator
     {
         bool isValidInput = false;
         int userInput;
+        
+        PetRepository petRepository = new PetRepository();
 
         public void Start()
         {
@@ -39,6 +41,14 @@ namespace PetFoodNutrientCalculator
                     Console.WriteLine("Syöte virheellinen, valitse kokonaisluku 1, 2 tai 3.");
                 }
 
+            }
+
+            switch (userInput)
+            {
+                case 1:
+                    petRepository.AddPet();
+                    isValidInput = false;
+                    break;  
             }
         }
     }

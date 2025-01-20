@@ -13,6 +13,6 @@ namespace PetFoodNutrientCalculator
 
         public const double COEFFICIENT_FOR_METABOLIC_WEIGHT = 0.75;
 
-        public double MetabolicWeight { get; set; } 
+        public double MetabolicWeight { get; set; }
     }
 }
