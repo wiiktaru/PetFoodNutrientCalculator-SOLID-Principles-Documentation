@@ -14,30 +14,31 @@ namespace PetFoodNutrientCalculatorTests
             public void DogConstructor_ShouldInitializeProperties()
             {
                 // Arrange
-                string name = "Buddy";
+                string name = "Ressu";
                 double weight = 10.0;
 
                 // Act
                 Dog dog = new Dog(name, weight);
 
                 // Assert
-                Assert.AreEqual(name, dog.Name);
-                Assert.AreEqual(weight, dog.Weight);
-                Assert.AreEqual(Math.Pow(weight, Pet.COEFFICIENT_FOR_METABOLIC_WEIGHT), dog.MetabolicWeight);
+                Assert.AreEqual(name, dog.Name, "Koiran nimen tulisi olla Ressu");
+                Assert.AreEqual(weight, dog.Weight, "Koiran painon tulisi olla 10");
+                Assert.AreEqual(dog.MetabolicWeight, 5.62, "Koiran metabolisen painon tulisi olla 5.62");
             }
 
             [TestMethod]
-            public void CalculateMetabolicWeight_ShouldReturnCorrectValue()
+            public void CalculateMetabolicWeight_ShouldReturnRightValue()
             {
                 // Arrange
                 double weight = 10.0;
-                Dog dog = new Dog("Buddy", weight);
+                Dog dog = new Dog("Ressu", weight);
 
                 // Act
                 double metabolicWeight = dog.CalculateMetabolicWeight(weight);
 
                 // Assert
-                Assert.AreEqual(Math.Pow(weight, Pet.COEFFICIENT_FOR_METABOLIC_WEIGHT), metabolicWeight);
+                Assert.AreEqual(Math.Pow(weight, Pet.COEFFICIENT_FOR_METABOLIC_WEIGHT), metabolicWeight,
+                    "Metabolisen painon tulisi vastata laskettua metabolista painoa");
             }
         }
     }
