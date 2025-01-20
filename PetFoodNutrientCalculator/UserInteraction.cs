@@ -11,8 +11,6 @@ namespace PetFoodNutrientCalculator
     /// </summary>
     public class UserInteraction
     {
-
-       // bool userInputIsValid = false;
        int userInputInt;
 
         PetRepository petRepository = new PetRepository();
