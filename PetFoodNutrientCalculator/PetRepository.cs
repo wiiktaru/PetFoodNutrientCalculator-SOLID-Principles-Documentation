@@ -22,19 +22,17 @@ namespace PetFoodNutrientCalculator
             Pets = new List<Pet>();
         }
 
-        // TODO simplify this
         /// <summary>
         /// Add a pet to a repository 
         /// </summary>
         public void AddPet()
         {
-           
-            Console.WriteLine("Valitse 1 mikäli lemmikki on koira. Valitse 2 mikäli lemmikki on kissa");
+            Console.WriteLine("Valitse 1 mikäli lemmikki on koira. Valitse 2 mikäli lemmikki on kissa.");
             string userInput = Console.ReadLine();
             ValidatePetSelection(userInput);
             petSelection = int.Parse(userInput);
 
-            Console.WriteLine("Kirjoita lemmikin nimi");
+            Console.WriteLine("Kirjoita lemmikin nimi.");
             userInput = Console.ReadLine();
             ValidatePetName(userInput);
             petName = userInput; 
@@ -49,7 +47,7 @@ namespace PetFoodNutrientCalculator
 
         public void ValidatePetSelection(string userInput)
         {
-            if (!int.TryParse(userInput, out int species) || (species != 1 && species != 2))
+            if (!int.TryParse(userInput, out int selection) || (selection != 1 && selection != 2))
             {
                 Console.WriteLine("Virheellinen syöte. Valitse kokonaisluku 1 tai 2.");
                 AddPet();
