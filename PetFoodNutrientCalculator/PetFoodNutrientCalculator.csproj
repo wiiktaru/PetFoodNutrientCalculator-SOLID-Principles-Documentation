@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="TestCases\" />
+    <Folder Include="E2E.TestCases\" />
   </ItemGroup>
 
 </Project>
