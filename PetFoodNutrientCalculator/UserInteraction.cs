@@ -16,9 +16,10 @@ namespace PetFoodNutrientCalculator
         PetRepository petRepository = new PetRepository();
 
         /// <summary>
-        /// Method to start the user interaction loop
+        /// Starts user interaction. Provides user the possibility to add a pet, choose a pet 
+        /// or close the solution
         /// </summary>
-        public void Start()
+        public void StartUserInteraction()
         {
                 Console.WriteLine("Valitse 1 mikäli haluat lisätä lemmikin.");
                 Console.WriteLine("Valitse 2 mikäli haluat valita lemmikin listalta");
@@ -41,7 +42,7 @@ namespace PetFoodNutrientCalculator
             else
             {
                 Console.WriteLine("Syöte virheellinen, valitse kokonaisluku 1,2 tai 3");
-                Start();
+                StartUserInteraction();
             }
         }
 
