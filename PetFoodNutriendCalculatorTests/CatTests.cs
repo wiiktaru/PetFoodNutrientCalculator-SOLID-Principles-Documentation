@@ -11,7 +11,7 @@ namespace PetFoodNutrientCalculatorTests
     public class CatTests
     {
             [TestMethod]
-            public void Constructor_ShouldInitializeProperties()
+            public void Constructor_InitializesProperties()
             {
             // Arrange
             string name = "Lucifer";
