@@ -28,7 +28,7 @@ namespace PetFoodNutrientCalculatorTests
             Console.SetOut(output);
 
             // Act
-            userInteraction.Start();
+            userInteraction.StartUserInteraction();
 
             // Assert
             StringAssert.Contains(output.ToString(), "Valitse 1 mikäli haluat lisätä lemmikin.");
@@ -51,7 +51,7 @@ namespace PetFoodNutrientCalculatorTests
             Console.SetOut(output);
 
             // Act
-            userInteraction.Start();
+            userInteraction.StartUserInteraction();
 
             // Assert
             StringAssert.Contains(output.ToString(), "Valitse 1 mikäli haluat lisätä lemmikin.");
@@ -74,7 +74,7 @@ namespace PetFoodNutrientCalculatorTests
             Console.SetOut(output);
 
             // Act
-            userInteraction.Start();
+            userInteraction.StartUserInteraction();
 
             // Assert
             StringAssert.Contains(output.ToString(), "Valitse 1 mikäli haluat lisätä lemmikin.");
@@ -97,7 +97,7 @@ namespace PetFoodNutrientCalculatorTests
             Console.SetOut(output);
 
             // Act
-            userInteraction.Start();
+            userInteraction.StartUserInteraction();
 
             // Assert
             StringAssert.Contains(output.ToString(), "Syöte virheellinen, valitse kokonaisluku 1, 2 tai 3.");
