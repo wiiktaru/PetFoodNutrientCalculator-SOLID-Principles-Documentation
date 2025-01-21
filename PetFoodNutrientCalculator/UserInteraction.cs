@@ -48,6 +48,10 @@ namespace PetFoodNutrientCalculator
         }
 
         // TODO complete method for functionality and funtionality methods 
+        /// <summary>
+        /// Executes functions based on user selection 
+        /// </summary>
+        /// <param name="functionality"></param>
         public void SwitchFunctionality(int functionality)
         {
             switch (functionality)
@@ -60,6 +64,7 @@ namespace PetFoodNutrientCalculator
                     // add method to choosing from a list of pets 
                     break;
                 case 3:
+                    // closes solution
                     break;
             }
         }
