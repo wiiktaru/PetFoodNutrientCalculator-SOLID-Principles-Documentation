@@ -8,6 +8,9 @@ The Pet Food Nutrient Calculator is a tool designed to help me calculate the nut
 - Support for different types of pets (dogs, cats).
 - User-interface for inputting and viewing data.
 
+## Entry Point
+The main entry point of the solution is the `Program` class located in the `Program.cs` file. The `Main` method initializes the `UserInteraction` class and starts the user interaction.
+
 ## Technologies used 
 - Visual Studio
 - C# 
