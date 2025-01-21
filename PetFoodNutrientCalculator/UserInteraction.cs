@@ -22,11 +22,9 @@ namespace PetFoodNutrientCalculator
         /// </summary>
         public void StartUserInteraction()
         {
-                Console.WriteLine("Valitse 1 mikäli haluat lisätä lemmikin.");
-                Console.WriteLine("Valitse 2 mikäli haluat valita lemmikin listalta");
-                Console.WriteLine("Valitse 3 mikäli haluat sulkea sovelluksen");
+            WriteUserOptions();
 
-                string userInputString = Console.ReadLine();
+            string userInputString = Console.ReadLine();
 
             if(inputValidator.UserInputValidation(userInputString))
             {
@@ -37,6 +35,16 @@ namespace PetFoodNutrientCalculator
             {
                 StartUserInteraction();
             }
+        }
+
+        /// <summary>
+        /// Writes the available options for the user to the console
+        /// </summary>
+        private void WriteUserOptions()
+        {
+            Console.WriteLine("Valitse 1 mikäli haluat lisätä lemmikin.");
+            Console.WriteLine("Valitse 2 mikäli haluat valita lemmikin listalta");
+            Console.WriteLine("Valitse 3 mikäli haluat sulkea sovelluksen");
         }
 
         // TODO complete method for functionality and funtionality methods 
