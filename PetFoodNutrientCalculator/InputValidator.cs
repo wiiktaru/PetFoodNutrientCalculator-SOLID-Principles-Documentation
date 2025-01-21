@@ -8,6 +8,20 @@ namespace PetFoodNutrientCalculator
 {
     public class InputValidator
     {
+
+        public bool UserInputValidation(string userInput)
+        {
+            if (int.TryParse(userInput, out int userInputInt))
+            {
+                if (userInputInt == 1 || userInputInt == 2 || userInputInt == 3)
+                {
+                    return true;
+                }
+            }
+                Console.WriteLine("Syöte virheellinen, valitse kokonaisluku 1,2 tai 3");
+                return false;
+        }
+
         public bool ValidatePetSelection(string userInput)
         {
             if (!int.TryParse(userInput, out int selection) || (selection != 1 && selection != 2))

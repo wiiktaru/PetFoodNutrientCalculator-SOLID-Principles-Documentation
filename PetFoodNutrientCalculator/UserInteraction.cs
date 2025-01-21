@@ -14,6 +14,7 @@ namespace PetFoodNutrientCalculator
        int userInputInt;
 
         PetRepository petRepository = new PetRepository();
+        InputValidator inputValidator = new InputValidator(); 
 
         /// <summary>
         /// Starts user interaction. Provides user the possibility to add a pet, choose a pet 
@@ -27,21 +28,13 @@ namespace PetFoodNutrientCalculator
 
                 string userInputString = Console.ReadLine();
 
-                UserInputValidation(userInputString);
-        }
-
-        public void UserInputValidation(string userInput)
-        {
-            if (int.TryParse(userInput, out int userInputInt))
-            { 
-                    if (userInputInt == 1 || userInputInt == 2 || userInputInt == 3)
-                    {
-                        SwitchFunctionality(userInputInt);
-                    }     
+            if(inputValidator.UserInputValidation(userInputString))
+            {
+                userInputInt = int.Parse(userInputString);
+                SwitchFunctionality(userInputInt); 
             }
             else
             {
-                Console.WriteLine("Syöte virheellinen, valitse kokonaisluku 1,2 tai 3");
                 StartUserInteraction();
             }
         }
