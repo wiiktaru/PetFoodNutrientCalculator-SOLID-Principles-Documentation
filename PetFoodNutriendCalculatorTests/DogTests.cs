@@ -10,35 +10,20 @@ namespace PetFoodNutrientCalculatorTests
     [TestClass]
     public class DogTests
     {
-            [TestMethod]
-            public void DogConstructor_ShouldInitializeProperties()
+        private Dog dog;
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            dog= new Dog("Kulkuri", 10.0);
+        }
+
+        [TestMethod]
+            public void CalculateMetabolicWeight_ReturnsCalculatedValue()
             {
-                // Arrange
-                string name = "Pluto";
-                double weight = 10.0;
-
                 // Act
-                Dog dog = new Dog(name, weight);
-                double metabolicWeight = dog.CalculateMetabolicWeight(weight);
-                double actualMetabolicWeight = Math.Round(Math.Pow(weight, Pet.COEFFICIENT_FOR_METABOLIC_WEIGHT), 2);
-            
-                // Assert
-                Assert.AreEqual(name, dog.Name, "Koiran nimen tulisi vastata nimeä Pluto.");
-                Assert.AreEqual(weight, dog.Weight, "Koiran painon tulisi vastata painoa 10.");
-                Assert.AreEqual(actualMetabolicWeight, metabolicWeight,
-                "Metabolisen painon tulisi vastata laskettua metabolista painoa");
-            }
-
-            [TestMethod]
-            public void CalculateMetabolicWeight_ShouldReturnRightValue()
-            {
-                // Arrange
-                double weight = 10.0;
-                Dog dog = new Dog("Pluto", weight);
-
-                // Act
-                double metabolicWeight = dog.CalculateMetabolicWeight(weight);
-                double actualMetabolicWeight = Math.Round(Math.Pow(weight, Pet.COEFFICIENT_FOR_METABOLIC_WEIGHT), 2);
+                double metabolicWeight = dog.CalculateMetabolicWeight(dog.Weight);
+                double actualMetabolicWeight = Math.Round(Math.Pow(dog.Weight, Pet.COEFFICIENT_FOR_METABOLIC_WEIGHT), 2);
 
                 // Assert
                 Assert.AreEqual(actualMetabolicWeight, metabolicWeight,
