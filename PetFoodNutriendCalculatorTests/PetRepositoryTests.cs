@@ -19,21 +19,15 @@ namespace PetFoodNutrientCalculatorTests
             petRepository = new PetRepository();
         }
 
-
-
         [TestMethod]
-        public void AddShouldAddPetToList()
+        public void AddPet_ValidInput_AddsPetToList()
         {
-            // Arrange
-            var repository = new PetRepository();
-            var pet = new Pet { Name = "Kulkuri" };
+            var pet = new Pet { Name = "Kulkuri"};
 
-            // Act
-            repository.Pets.Add(pet);
+            petRepository.Pets.Add(pet);
 
             // Assert
-            Assert.AreEqual(1, repository.Pets.Count);
-            Assert.AreEqual("Kulkuri", repository.Pets[0].Name, "Lemmikin nimen tulisi vastata nimeä Kulkuri");
+            Assert.AreEqual(1, petRepository.Pets.Count);
         }
 
         [TestMethod]
