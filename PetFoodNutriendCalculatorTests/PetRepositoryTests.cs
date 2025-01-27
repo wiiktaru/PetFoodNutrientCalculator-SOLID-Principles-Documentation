@@ -11,6 +11,16 @@ namespace PetFoodNutrientCalculatorTests
     [TestClass]
     public class PetRepositoryTests
     {
+        PetRepository petRepository; 
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            petRepository = new PetRepository();
+        }
+
+
+
         [TestMethod]
         public void AddShouldAddPetToList()
         {
