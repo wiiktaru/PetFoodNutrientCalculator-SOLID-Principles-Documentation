@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PetFoodNutrientCalculatorTests
 {
-    // TODO refactor class and rewrite unit tests 
+    // TODO change these test methods to implement best practices
     [TestClass]
     public class UserInteractionTests
     {

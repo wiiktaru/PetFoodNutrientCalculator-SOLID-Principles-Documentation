@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PetFoodNutrientCalculatorTests
 {
-    // TODO refactor unit tests§
+    /// TODO change these test methods to implement best practices
     [TestClass]
     public class PetRepositoryTests
     {
@@ -28,6 +28,12 @@ namespace PetFoodNutrientCalculatorTests
 
             // Assert
             Assert.AreEqual(1, petRepository.Pets.Count);
+        }
+
+        [TestMethod]
+        public void GetPetSelection_ValidInput_ReturnsInt()
+        {
+
         }
 
         [TestMethod]
