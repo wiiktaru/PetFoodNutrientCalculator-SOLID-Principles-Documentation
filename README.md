@@ -15,5 +15,7 @@ The main entry point of the solution is the `Program` class located in the `Prog
 
 ## Technologies used 
 - Visual Studio
+- .NET
 - C# 
-- ArchiMate 
+- ArchiMate
+  
