@@ -1,7 +1,9 @@
-# PetFoodNutrientCalculator - UNFINISHED
+# PetFoodNutrientCalculator - WORK IN PROGRESS
 
 ## Description
-The Pet Food Nutrient Calculator is a tool designed to help me calculate the nutritional content of pet's food. It supports dogs and cats, and when ready provides detailed nutrient information to ensure a balanced diet.
+The Pet Food Nutrient Calculator is a tool designed to help calculate the nutritional content of pet's food. It supports dogs and cats, and when ready provides detailed nutrient information to ensure a balanced diet.
+
+With this project I aim to practice SOLID principless, code documentation and version control. 
 
 ## Features
 - Calculate nutrient values for pet foods in use.
