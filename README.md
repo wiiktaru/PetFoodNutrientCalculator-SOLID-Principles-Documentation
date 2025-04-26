@@ -14,8 +14,16 @@ With this project I aim to practice SOLID principless, code documentation and ve
 The main entry point of the solution is the `Program` class located in the `Program.cs` file. The `Main` method initializes the `UserInteraction` class and starts the user interaction.
 
 ## Technologies used 
+
+Back-end:
+- C#
+
+IDE: 
 - Visual Studio
-- .NET
-- C# 
+
+Framework: 
+- .NET Framework
+
+Others:
 - ArchiMate
   
